@@ -1,0 +1,38 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"label": "C/C++: gcc.exe build multiple files",
+			"command": "C:\\MinGW\\bin\\gcc.exe",
+			"args": [
+				"-g",
+				"${workspaceFolder}\\*.c",
+				"-o",
+				"${fileDirname}\\exe_files\\${fileBasenameNoExtension}.exe"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		{
+			"label": "Run BSTmain exe",
+			"command": "${workspaceFolder}\\exe_files\\BSTmain.exe",
+            "args": ["BSTmain.exe"],
+            "group": {
+				"kind": "test",
+				"isDefault": true
+			},
+			"dependsOn": [
+				"C/C++: gcc.exe build multiple files"
+			]
+		}
+	]
+}
